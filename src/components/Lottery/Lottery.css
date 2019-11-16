@@ -1,0 +1,14 @@
+.Lottery {
+  width: auto;
+  padding: 20px 40px;
+}
+
+.Lottery-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid black;
+  width: 90vw;
+}
