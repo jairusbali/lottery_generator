@@ -5,14 +5,18 @@ import LotteryBall from "./LotteryBall/LotteryBall";
 import "./Lottery.css";
 
 class Lottery extends Component {
+  static defaultProps = {
+    max: 10,
+    min: 1,
+    lengthOfNumbers: 6,
+    title: "Lottery"
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
-      numbers: [],
-      max: !props.max ? 10 : props.max,
-      min: !props.min ? 1 : props.min,
-      lengthOfNumbers: !props.lengthOfNumbers ? 3 : props.lengthOfNumbers
+      numbers: []
     };
 
     this.generateNumbers = this.generateNumbers.bind(this);
@@ -21,8 +25,13 @@ class Lottery extends Component {
   generateNumbers() {
     let i = 0;
     let newArr = [];
-    while (i < this.state.lengthOfNumbers) {
-      newArr.push(Math.floor(Math.random() * this.state.max) + this.state.min);
+    console.log(this.props.max, this.props.min);
+    while (i < this.props.lengthOfNumbers) {
+      newArr.push(
+        Math.floor(Math.random() * (this.props.max - this.props.min + 1)) +
+          this.props.min
+      );
+      console.log(newArr[i]);
       i++;
     }
 
@@ -32,6 +41,7 @@ class Lottery extends Component {
   render() {
     return (
       <div className="Lottery">
+        <h1>{this.props.title}</h1>
         <div className="Lottery-content">
           {this.state.numbers.map(lottoNumber => {
             return <LotteryBall number={lottoNumber} />;

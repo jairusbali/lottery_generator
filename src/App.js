@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Lottery min={1} max={40} lengthOfNumbers={12} />
+      <Lottery title="Custom Title" min={5} max={7} lengthOfNumbers={2} />
     </div>
   );
 }
