@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import LotteryBall from "./LotteryBall/LotteryBall";
+import PrimaryButton from "../Button/PrimaryButton";
 
 import "./Lottery.css";
 
@@ -47,7 +48,8 @@ class Lottery extends Component {
             return <LotteryBall number={lottoNumber} />;
           })}
         </div>
-        <button onClick={this.generateNumbers}>generate</button>
+
+        <PrimaryButton onClick={this.generateNumbers} name="Generate" />
       </div>
     );
   }
