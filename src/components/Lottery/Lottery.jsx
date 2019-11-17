@@ -9,8 +9,7 @@ class Lottery extends Component {
   static defaultProps = {
     max: 10,
     min: 1,
-    numberOfBalls: 1,
-    title: "Lottery"
+    numberOfBalls: 1
   };
 
   constructor(props) {
@@ -42,7 +41,6 @@ class Lottery extends Component {
   render() {
     return (
       <div className="Lottery">
-        <h1>{this.props.title}</h1>
         <div className="Lottery-content">
           {this.state.numbers.map(lottoNumber => {
             return <LotteryBall number={lottoNumber} />;
