@@ -5,11 +5,16 @@ import Lottery from "./components/Lottery/Lottery";
 import "./App.css";
 
 class App extends React.Component {
+  static defaultProps = {
+    min: 1,
+    max: 80
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
-      value: [0, 80]
+      value: [this.props.min, this.props.max]
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +32,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Lottery title="Lottery Generator" min={1} max={7} numberOfBalls={2} />
+        <Lottery
+          title="Lottery Generator"
+          min={this.state.value[0]}
+          max={this.state.value[1]}
+          numberOfBalls={2}
+        />
 
         <div style={{ margin: "0 4rem" }}>
           <Slider
@@ -36,6 +46,8 @@ class App extends React.Component {
             valueLabelDisplay="auto"
             aria-labelledby="range-slider"
             getAriaValueText={this.valuetext}
+            min={this.props.min}
+            max={this.props.max}
           />
         </div>
       </div>
