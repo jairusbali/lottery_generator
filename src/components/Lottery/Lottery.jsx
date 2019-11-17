@@ -8,7 +8,7 @@ class Lottery extends Component {
   static defaultProps = {
     max: 10,
     min: 1,
-    lengthOfNumbers: 6,
+    numberOfBalls: 1,
     title: "Lottery"
   };
 
@@ -26,7 +26,7 @@ class Lottery extends Component {
     let i = 0;
     let newArr = [];
     console.log(this.props.max, this.props.min);
-    while (i < this.props.lengthOfNumbers) {
+    while (i < this.props.numberOfBalls) {
       newArr.push(
         Math.floor(Math.random() * (this.props.max - this.props.min + 1)) +
           this.props.min
