@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      value: [0, 10]
+      value: [0, 80]
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,13 +28,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <Lottery title="Lottery Generator" min={1} max={7} numberOfBalls={2} />
-        <Slider
-          value={this.state.value}
-          onChange={this.handleChange}
-          valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
-          getAriaValueText={this.valuetext}
-        />
+
+        <div style={{ margin: "0 4rem" }}>
+          <Slider
+            value={this.state.value}
+            onChange={this.handleChange}
+            valueLabelDisplay="auto"
+            aria-labelledby="range-slider"
+            getAriaValueText={this.valuetext}
+          />
+        </div>
       </div>
     );
   }
